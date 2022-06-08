@@ -1,5 +1,5 @@
 
-* SQLite by default if no env variable is set
+
 
 # Usage
 
