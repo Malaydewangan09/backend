@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Assignment</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="/" method = 'POST'>
+         {% csrf_token %}
+        <label for="myfile">Select a file:</label>
+        <input type="file" id="myFile" accept =".csv" name="filename">
+        <br><br>
+        <label for="datemax">Enter a start date</label>
+        <input type="date" id="datemax" name="datemax" ><br><br>
+        <br>
+        <label for="datemin">Enter a end date</label>
+        <input type="date" id="datemin" name="datemin" >
+        <br><br>
+        <input type="submit" value="Generate report">
+      </form>
+      <hr>
+      <br>
+      <table border= 1>
+          <tr>
+              <th>name</th>
+              <th>objects</th>
+              <th>date</th>
+          </tr>
+      {% for results in data %}
+      <tr>
+      <td>{{ results.name}}</td>
+      <td>{{ results.object}}</td>
+      <td>{{ results.time}}</td>
+      </tr>
+      {% endfor %}
+</body>
+</html>
